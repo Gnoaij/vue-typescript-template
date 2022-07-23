@@ -1,0 +1,42 @@
+@use 'sass:meta';
+@use 'sass:map';
+
+@mixin set-css-var($var, $value) {
+  --#{$var}: #{$value};
+}
+
+@mixin set-css-vars($map) {
+  @each $var, $value in $map {
+    @include set-css-var($var, $value);
+  }
+}
+
+@mixin set-theme-css($name: null) {
+  @if meta.type-of($name) == 'string' {
+    :root[data-theme='#{$name}'] {
+      @content;
+    }
+  } @else {
+    :root {
+      @content;
+    }
+  }
+}
+
+@mixin themify($themes) {
+  $common: ();
+
+  @each $name, $map in $themes {
+    @if meta.type-of($map) == 'map' {
+      @include set-theme-css($name) {
+        @include set-css-vars($map);
+      }
+    } @else {
+      $common: map.set($common, $name, $map);
+    }
+  }
+
+  @include set-theme-css {
+    @include set-css-vars($common);
+  }
+}

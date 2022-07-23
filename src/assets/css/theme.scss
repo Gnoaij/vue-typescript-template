@@ -1,0 +1,15 @@
+$themes: (
+  light: (
+    text-color-regular: V.$color-black-1,
+    background-color-regular: V.$color-white-1,
+    background-color-hover: V.$color-white-2
+  ),
+  dark: (
+    text-color-regular: V.$color-white-3,
+    background-color-regular: V.$color-black-3,
+    background-color-hover: V.$color-black-2
+  ),
+  text-color-active: V.$color-green-1
+);
+
+@include T.themify($themes);

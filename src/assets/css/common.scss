@@ -1,0 +1,29 @@
+.pointer {
+  cursor: pointer;
+}
+
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-overflow-line-2 {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.clearfix::after {
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+  content: '';
+}
+
+.clearfix {
+  zoom: 1;
+}

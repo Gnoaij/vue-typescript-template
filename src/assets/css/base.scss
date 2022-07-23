@@ -1,0 +1,23 @@
+body,
+body *,
+body *::before,
+body *::after {
+  box-sizing: border-box;
+}
+
+li,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  vertical-align: middle;
+}
+
+table {
+  border-collapse: collapse;
+}
